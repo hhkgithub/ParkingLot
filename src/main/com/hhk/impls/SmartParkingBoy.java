@@ -8,12 +8,12 @@ import com.hhk.datamodel.Ticket;
 import java.util.List;
 /**
  * @author hehuikang
- * @description
+ * @description 聪明的停车小弟
  * @date 2019-02-15 13:25
  */
 public class SmartParkingBoy extends AbstractParkingBoy {
     @Override
-    public Ticket doParkingDispatch(Car car, List<ParkingLot> parkingLotList) {
+    public Ticket doParkingCarDispatch(Car car, List<ParkingLot> parkingLotList) {
         parkingLotList.sort((o1, o2) -> o2.getRestSpace() - o1.getRestSpace());
         return parkingLotList.get(0).park(car);
     }

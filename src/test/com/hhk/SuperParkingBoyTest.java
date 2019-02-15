@@ -4,8 +4,6 @@ import com.hhk.datamodel.AbstractParkingBoy;
 import com.hhk.datamodel.Car;
 import com.hhk.datamodel.ParkingLot;
 import com.hhk.exception.NoParkingLotAvailableException;
-import com.hhk.impls.GraduateParkingBoy;
-import com.hhk.impls.SmartParkingBoy;
 import com.hhk.impls.SuperParkingBoy;
 import org.junit.Assert;
 import org.junit.Test;
@@ -27,7 +25,7 @@ public class SuperParkingBoyTest {
     public void should_throw_no_parking_lot_available_when_parked_given_zero_parkinglot_and_one_car(){
         AbstractParkingBoy superParkingBoy = new SuperParkingBoy();
         Car firstCar = new Car();
-        superParkingBoy.parkingDispatch(firstCar);
+        superParkingBoy.parkingLotDispatch(firstCar);
     }
     /**
      * Given 3个停车场，不同的空置率
@@ -46,7 +44,7 @@ public class SuperParkingBoyTest {
         parkingLotList.add(threeParkingLot);
         superParkingBoy.setParkingLotList(parkingLotList);
         Car car = new Car();
-        superParkingBoy.parkingDispatch(car);
+        superParkingBoy.parkingLotDispatch(car);
         Assert.assertEquals(superParkingBoy.getParkingLotList().get(0).getPakringCarMap().size(),1);
         Assert.assertEquals(superParkingBoy.getParkingLotList().get(1).getPakringCarMap().size(),0);
         Assert.assertEquals(superParkingBoy.getParkingLotList().get(2).getPakringCarMap().size(),0);
@@ -69,12 +67,12 @@ public class SuperParkingBoyTest {
         superParkingBoy.setParkingLotList(parkingLotList);
 
         Car firstCar = new Car();
-        superParkingBoy.parkingDispatch(firstCar);
+        superParkingBoy.parkingLotDispatch(firstCar);
         Assert.assertEquals(superParkingBoy.getParkingLotList().get(0).getPakringCarMap().size(),1);
         Assert.assertEquals(superParkingBoy.getParkingLotList().get(0).getNum(),2);
 
         Car secondCar = new Car();
-        superParkingBoy.parkingDispatch(secondCar);
+        superParkingBoy.parkingLotDispatch(secondCar);
         Assert.assertEquals(superParkingBoy.getParkingLotList().get(0).getPakringCarMap().size(),1);
         Assert.assertEquals(superParkingBoy.getParkingLotList().get(0).getNum(),3);
     }

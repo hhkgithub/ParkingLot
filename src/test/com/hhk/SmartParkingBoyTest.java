@@ -24,7 +24,7 @@ public class SmartParkingBoyTest {
     public void should_throw_no_parking_lot_available_when_parked_given_zero_parkinglot_and_one_car(){
         AbstractParkingBoy graduateParkingBoy = new GraduateParkingBoy();
         Car firstCar = new Car();
-        graduateParkingBoy.parkingDispatch(firstCar);
+        graduateParkingBoy.parkingLotDispatch(firstCar);
     }
     /**
      * Given 3个停车场，只有一个停车场空闲停车位最多
@@ -43,7 +43,7 @@ public class SmartParkingBoyTest {
         parkingLotList.add(threeParkingLot);
         smartParkingBoy.setParkingLotList(parkingLotList);
         Car car = new Car();
-        smartParkingBoy.parkingDispatch(car);
+        smartParkingBoy.parkingLotDispatch(car);
         Assert.assertEquals(smartParkingBoy.getParkingLotList().get(0).getPakringCarMap().size(),1);
         Assert.assertEquals(smartParkingBoy.getParkingLotList().get(1).getPakringCarMap().size(),0);
         Assert.assertEquals(smartParkingBoy.getParkingLotList().get(2).getPakringCarMap().size(),0);
@@ -66,12 +66,12 @@ public class SmartParkingBoyTest {
         smartParkingBoy.setParkingLotList(parkingLotList);
 
         Car firstCar = new Car();
-        smartParkingBoy.parkingDispatch(firstCar);
+        smartParkingBoy.parkingLotDispatch(firstCar);
         Assert.assertEquals(smartParkingBoy.getParkingLotList().get(0).getPakringCarMap().size(),1);
         Assert.assertEquals(smartParkingBoy.getParkingLotList().get(0).getNum(),2);
 
         Car secondCar = new Car();
-        smartParkingBoy.parkingDispatch(secondCar);
+        smartParkingBoy.parkingLotDispatch(secondCar);
         Assert.assertEquals(smartParkingBoy.getParkingLotList().get(0).getPakringCarMap().size(),1);
         Assert.assertEquals(smartParkingBoy.getParkingLotList().get(0).getNum(),3);
     }

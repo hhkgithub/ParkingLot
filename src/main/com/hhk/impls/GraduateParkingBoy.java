@@ -9,13 +9,13 @@ import com.hhk.datamodel.Ticket;
 import java.util.*;
 /**
  * @author hehuikang
- * @description
+ * @description  出入职场的停车小弟
  * @date 2019-02-15 13:25
  */
 public class GraduateParkingBoy extends AbstractParkingBoy {
 
     @Override
-    public Ticket doParkingDispatch(Car car, List<ParkingLot> parkingLotList) {
+    public Ticket doParkingCarDispatch(Car car, List<ParkingLot> parkingLotList) {
 
         for (ParkingLot parkingLot : parkingLotList) {
             if(!parkingLot.getParked()){

@@ -10,13 +10,13 @@ import java.util.List;
 
 /**
  * @author hehuikang
- * @description
+ * @description 超级停车小弟
  * @date 2019-02-15 13:25
  */
 public class SuperParkingBoy extends AbstractParkingBoy {
 
     @Override
-    protected Ticket doParkingDispatch(Car car, List<ParkingLot> parkingLotList) {
+    protected Ticket doParkingCarDispatch(Car car, List<ParkingLot> parkingLotList) {
         parkingLotList.sort((o1, o2) -> {
             double vacancyRate1 = o1.getRestSpace() / (o1.getAllSpace()*1.0);
             double vacancyRate2 = o2.getRestSpace() / (o2.getAllSpace()*1.0);

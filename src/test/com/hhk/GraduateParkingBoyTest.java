@@ -26,7 +26,7 @@ public class GraduateParkingBoyTest {
     public void should_throw_no_parking_lot_available_when_parked_given_zero_parkinglot_and_one_car(){
         AbstractParkingBoy graduateParkingBoy = new GraduateParkingBoy();
         Car firstCar = new Car();
-        graduateParkingBoy.parkingDispatch(firstCar);
+        graduateParkingBoy.parkingLotDispatch(firstCar);
     }
 
     /**
@@ -51,8 +51,8 @@ public class GraduateParkingBoyTest {
 
         Car firstCar = new Car();
         Car secondCar = new Car();
-        graduateParkingBoy.parkingDispatch(firstCar);
-        graduateParkingBoy.parkingDispatch(secondCar);
+        graduateParkingBoy.parkingLotDispatch(firstCar);
+        graduateParkingBoy.parkingLotDispatch(secondCar);
 
         for (ParkingLot parkingLot : graduateParkingBoy.getParkingLotList()) {
             Assert.assertEquals(parkingLot.getPakringCarMap().size(),1);
@@ -90,11 +90,11 @@ public class GraduateParkingBoyTest {
         Car fourCar = new Car();
         Car fiveCar = new Car();
 
-        graduateParkingBoy.parkingDispatch(firstCar);
-        graduateParkingBoy.parkingDispatch(secondCar);
-        graduateParkingBoy.parkingDispatch(threeCar);
-        graduateParkingBoy.parkingDispatch(fourCar);
-        graduateParkingBoy.parkingDispatch(fiveCar);
+        graduateParkingBoy.parkingLotDispatch(firstCar);
+        graduateParkingBoy.parkingLotDispatch(secondCar);
+        graduateParkingBoy.parkingLotDispatch(threeCar);
+        graduateParkingBoy.parkingLotDispatch(fourCar);
+        graduateParkingBoy.parkingLotDispatch(fiveCar);
 
         Assert.assertEquals(graduateParkingBoy.getParkingLotList().get(0).getPakringCarMap().size(),2);
         Assert.assertEquals(graduateParkingBoy.getParkingLotList().get(1).getPakringCarMap().size(),2);
@@ -135,8 +135,8 @@ public class GraduateParkingBoyTest {
 
         Car firstCar = new Car();
         Car secondCar = new Car();
-        graduateParkingBoy.parkingDispatch(firstCar);
-        graduateParkingBoy.parkingDispatch(secondCar);
+        graduateParkingBoy.parkingLotDispatch(firstCar);
+        graduateParkingBoy.parkingLotDispatch(secondCar);
 
         Assert.assertEquals(graduateParkingBoy.getParkingLotList().get(0).getPakringCarMap().size(),3);
         Assert.assertEquals(graduateParkingBoy.getParkingLotList().get(1).getPakringCarMap().size(),2);
@@ -175,9 +175,9 @@ public class GraduateParkingBoyTest {
         Car secondCar = new Car();
         Car threeCar = new Car();
 
-        Ticket firstTicket = graduateParkingBoy.parkingDispatch(firstCar);
-        Ticket secondTicket = graduateParkingBoy.parkingDispatch(secondCar);
-        Ticket threeTicket = graduateParkingBoy.parkingDispatch(threeCar);
+        Ticket firstTicket = graduateParkingBoy.parkingLotDispatch(firstCar);
+        Ticket secondTicket = graduateParkingBoy.parkingLotDispatch(secondCar);
+        Ticket threeTicket = graduateParkingBoy.parkingLotDispatch(threeCar);
 
         Assert.assertEquals(firstCar,graduateParkingBoy.getParkingLotList().get(0).getPakringCarMap().get(firstTicket));
         Assert.assertEquals(secondCar,graduateParkingBoy.getParkingLotList().get(1).getPakringCarMap().get(secondTicket));
