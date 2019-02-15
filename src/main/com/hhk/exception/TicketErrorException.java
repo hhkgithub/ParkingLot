@@ -1,7 +1,9 @@
 package com.hhk.exception;
 
 /**
- * 车票有误
+ * @author hehuikang
+ * @description
+ * @date 2019-02-15 13:25
  */
 public class TicketErrorException extends RuntimeException {
 }

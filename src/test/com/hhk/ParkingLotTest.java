@@ -10,8 +10,9 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * 作为一个停车场，能够存车、取车。
- * @author hhk
+ * @author hehuikang
+ * @description 作为一个停车场，能够存车、取车。
+ * @date 2019-02-15 13:25
  */
 public class ParkingLotTest {
 
@@ -22,7 +23,7 @@ public class ParkingLotTest {
      */
     @Test
     public void should_return_ticket_when_parking_given_having_parkinglot_freespace(){
-        ParkingLot parkingLot=new ParkingLot(1);
+        ParkingLot parkingLot=new ParkingLot(1,1);
         Car car=new Car();
 
         Ticket ticket=parkingLot.park(car);
@@ -35,7 +36,7 @@ public class ParkingLotTest {
      */
     @Test(expected = ParkingLotIsFullException.class)
     public void should_throw_parkinglot_full_exception_when_parking_given_parkinglot_fullspace(){
-        ParkingLot  parkingLot=new ParkingLot(0);
+        ParkingLot  parkingLot=new ParkingLot(0,1);
         Car car=new Car();
         parkingLot.park(car);
     }
@@ -46,7 +47,7 @@ public class ParkingLotTest {
      */
     @Test
     public void should_return_car_when_take_car_given_ticket(){
-        ParkingLot  parkingLot=new ParkingLot(1);
+        ParkingLot  parkingLot=new ParkingLot(1,1);
         Car myCar = new Car();
         Ticket ticket = parkingLot.park(myCar);
         Car takedCar = parkingLot.takeCar(ticket);
@@ -59,7 +60,7 @@ public class ParkingLotTest {
      */
     @Test(expected = TicketErrorException.class)
     public void should_return_car_when_take_car_given_nothing(){
-        ParkingLot  parkingLot=new ParkingLot(1);
+        ParkingLot  parkingLot=new ParkingLot(1,1);
         parkingLot.takeCar(null);
     }
     /**
@@ -69,7 +70,7 @@ public class ParkingLotTest {
      */
     @Test(expected = CarNotExistOrTakedException.class)
     public void should_throw_car_not_exist_or_taked_exception_when_take_car_given_same_ticket(){
-        ParkingLot  parkingLot=new ParkingLot(1);
+        ParkingLot  parkingLot=new ParkingLot(1,1);
         Ticket ticket = parkingLot.park(new Car());
         Car car = parkingLot.takeCar(ticket);
         Assert.assertNotNull(car);
